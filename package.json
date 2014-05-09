@@ -1,0 +1,39 @@
+{
+  "name": "np",
+  "version": "0.0.0",
+  "description": "cjs test",
+  "main": "index.js",
+  "browserify-shim": {
+    "./js/vendor/dropbox-datastores-1.0-latest.js": "Dropbox",
+    "./js/vendor/routie.js": "routie"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "scripts": {
+    "test": "mocha",
+    "build-js": "browserify js/index.js > js/bundle.js",
+    "build-css": "stylus -c < css/stylus/s.styl > css/swl.css && cat node_modules/normalize.css/normalize.css css/swl.css > css/s.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "superagent": "^0.17.0",
+    "q": "^1.0.1",
+    "ractive": "^0.4.0-pre2",
+    "normalize.css": "^3.0.1"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-jsbeautifier": "~0.2.3",
+    "grunt-simple-mocha": "~0.4.0",
+    "mocha": "~1.15.1",
+    "chai": "~1.8.1",
+    "browserify": "^3.32.1",
+    "browserify-shim": "^3.3.1",
+    "stylus": "^0.43.1"
+  }
+}
