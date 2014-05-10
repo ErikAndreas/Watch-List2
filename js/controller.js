@@ -31,7 +31,36 @@ var notc = {
   }
 };
 
-var nc = {
+// just to make jshint happy
+var nc;
+
+var mc = {
+  rmenu: {},
+  set: function () {
+    mc.rmenu = new Ractive({
+      el: 'menu',
+      template: '#menutpl',
+      data: {
+        active: '',
+        loading: false
+      }
+    });
+
+    mc.rmenu.on('filedrop', function (evt) {
+      console.log(evt.contents);
+      var fc = evt.contents;
+      var uri = fc.substring(fc.lastIndexOf('/') + 1);
+      spotify.lookup('spotify:artist:' + uri).then(function (res) {
+        console.log(res);
+        nc.addNews(res.artist);
+      }).fail(function (err) {
+        console.log(err);
+      });
+    });
+  }
+};
+
+nc = {
   rnews: {},
   setNews: function () {
     nc.rnews = new Ractive({
@@ -202,32 +231,6 @@ var sc = {
       filedrop: function (evt) {
         sc.rs.set('importdata', evt.contents);
       }
-    });
-  }
-};
-
-var mc = {
-  rmenu: {},
-  set: function () {
-    mc.rmenu = new Ractive({
-      el: 'menu',
-      template: '#menutpl',
-      data: {
-        active: '',
-        loading: false
-      }
-    });
-
-    mc.rmenu.on('filedrop', function (evt) {
-      console.log(evt.contents);
-      var fc = evt.contents;
-      var uri = fc.substring(fc.lastIndexOf('/') + 1);
-      spotify.lookup('spotify:artist:' + uri).then(function (res) {
-        console.log(res);
-        nc.addNews(res.artist);
-      }).fail(function (err) {
-        console.log(err);
-      });
     });
   }
 };
