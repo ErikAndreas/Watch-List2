@@ -23,21 +23,24 @@
     "gulp": "^3.6.2",
     "normalize.css": "^3.0.1",
     "q": "^1.0.1",
-    "ractive": "^0.4.0-pre2",
-    "superagent": "^0.17.0"
+    "ractive": "^0.4.0",
+    "superagent": "^0.18.0"
   },
   "devDependencies": {
-    "browserify": "^3.32.1",
-    "browserify-shim": "^3.3.1",
-    "chai": "~1.8.1",
+    "browserify": "^4.1.2",
+    "browserify-shim": "^3.4.1",
+    "chai": "~1.9.1",
     "grunt": "latest",
     "grunt-contrib-jshint": "latest",
-    "grunt-jsbeautifier": "~0.2.3",
+    "grunt-jsbeautifier": "~0.2.7",
     "grunt-simple-mocha": "~0.4.0",
+    "gulp-concat": "^2.2.0",
     "gulp-jsbeautifier": "0.0.2",
     "gulp-jshint": "^1.5.5",
+    "gulp-minify-css": "^0.3.4",
     "gulp-mocha": "^0.4.1",
-    "mocha": "~1.15.1",
-    "stylus": "^0.43.1"
+    "gulp-stylus": "^1.0.0",
+    "mocha": "~1.18.2",
+    "stylus": "^0.45.0"
   }
 }
